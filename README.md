@@ -1,2 +1,3 @@
-# tcore-coap-gateway-plugin
-CoAP Gateway Plugin for TagoCore Plataform
+# CoAP Gateway Plugin for TagoCore Platform
+
+CoAP Gateway Plugin for TagoCore Platform
