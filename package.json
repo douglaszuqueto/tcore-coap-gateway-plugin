@@ -1,0 +1,42 @@
+{
+  "name": "tcore-coap-gateway-plugin",
+  "version": "0.0.1",
+  "repository": "git@github.com:douglaszuqueto/tcore-coap-gateway-plugin.git",
+  "author": "douglaszuqueto <douglas.zuqueto@gmail.com>",
+  "license": "MIT",
+  "main": "./src/index.js",
+  "files": [
+    "build/**/*",
+    "assets/**/*",
+    "src/**/*"
+  ],
+  "engines": {
+    "node": ">=14.17.0"
+  },
+  "tcore": {
+    "name": "CoAP Gateway",
+    "short_description": "CoAP Gateway Plugin for TagoCore Plataform",
+    "full_description": "./README.md",
+    "icon": "./assets/icon.png",
+    "cluster": true,
+    "types": [
+      "service"
+    ],
+    "permissions": [
+      "device",
+      "device-data",
+      "action",
+      "analysis"
+    ],
+    "publisher": {
+      "name": "Douglas Zuqueto",
+      "domain": "github.com/douglaszuqueto"
+    }
+  },
+  "scripts": {
+    "pack": "tcore-plugin pack"
+  },
+  "dependencies": {
+    "@tago-io/tcore-sdk": "^0.6.0"
+  }
+}
