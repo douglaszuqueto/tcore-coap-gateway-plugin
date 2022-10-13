@@ -1,4 +1,6 @@
 const { ServiceModule, pluginStorage } = require("@tago-io/tcore-sdk");
+const { spawn } = require("child_process");
+const path = require("path");
 
 const service = new ServiceModule({
   id: "tcore-coap-gateway-plugin",
@@ -53,6 +55,8 @@ const service = new ServiceModule({
   ],
 });
 
+let child = null;
+
 service.onLoad = async (userValues) => {
   console.log("OnLoad Plugin");
 
@@ -61,8 +65,39 @@ service.onLoad = async (userValues) => {
   //
 
   console.log(userValues);
+
+  const env = {
+    TCORE_COAP_PLUGIN_COAP_UDP_PORT: userValues.udp_port,
+    TCORE_COAP_PLUGIN_COAP_DTLS_PORT: userValues.dtls_port,
+    TCORE_COAP_PLUGIN_API_TOKEN: userValues.api_token,
+    TCORE_COAP_PLUGIN_API_PORT: userValues.api_port,
+  };
+
+  //
+  // CoAP Service
+  //
+
+  child = spawn(path.join(__dirname, "bin") + "/coap", {
+    env: env,
+  });
+
+  child.on("exit", function (code, signal) {
+    console.log(
+      "child process exited with " + `code ${code} and signal ${signal}`
+    );
+  });
+
+  child.stdout.on("data", (data) => {
+    console.log(`${data}`);
+  });
+
+  child.stderr.on("data", (data) => {
+    console.log(`${data}`);
+  });
 };
 
 service.onDestroy = async () => {
   console.log("onDestroy Plugin");
+
+  child.kill("SIGINT");
 };
