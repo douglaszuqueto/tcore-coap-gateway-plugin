@@ -14,7 +14,7 @@
   },
   "tcore": {
     "name": "CoAP Gateway",
-    "short_description": "CoAP Gateway Plugin for TagoCore Plataform",
+    "short_description": "CoAP Gateway Plugin for TagoCore Platform",
     "full_description": "./README.md",
     "icon": "./assets/icon.png",
     "cluster": true,
