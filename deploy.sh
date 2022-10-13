@@ -6,4 +6,4 @@ rm -rf ~/.tagocore/Plugins/tcore-coap-gateway-plugin
 
 # Copy plugin
 
-cp -r . ~/.tagocore/Plugins/tcore-coap-gateway-plugin/
+cp -r ./dist ~/.tagocore/Plugins/tcore-coap-gateway-plugin/
