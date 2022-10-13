@@ -4,11 +4,10 @@
   "repository": "git@github.com:douglaszuqueto/tcore-coap-gateway-plugin.git",
   "author": "douglaszuqueto <douglas.zuqueto@gmail.com>",
   "license": "MIT",
-  "main": "./src/index.js",
+  "main": "./build/index.js",
   "files": [
     "build/**/*",
-    "assets/**/*",
-    "src/**/*"
+    "assets/**/*"
   ],
   "engines": {
     "node": ">=14.17.0"
@@ -38,5 +37,6 @@
   },
   "dependencies": {
     "@tago-io/tcore-sdk": "^0.6.0"
-  }
+  },
+  "devDependencies": {}
 }
