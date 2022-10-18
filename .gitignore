@@ -1,4 +1,6 @@
 .env
-node_modules/
 dist/
 tmp/
+bin/
+build/
+node_modules/
